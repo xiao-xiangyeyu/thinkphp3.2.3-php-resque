@@ -1,0 +1,13 @@
+#!/usr/bin/env php
+<?php
+ini_set('display_errors', true);
+error_reporting(E_ERROR);
+define('APP_PATH','./Application/');
+define('MODE_NAME', 'cli');
+define('BIND_MODULE', 'Home');
+define('BIND_CONTROLLER', 'Queue');
+define('BIND_ACTION', 'index');
+$act = $argv[1] ? $argv[1] : 'start';
+putenv("Q_ACTION={$act}");
+putenv("Q_ARGV=" . json_encode($argv));
+require './ThinkPHP/ThinkPHP.php';
